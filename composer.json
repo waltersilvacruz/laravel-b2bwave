@@ -34,7 +34,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "WebDEV\\B2BWave\\Providers\\ServiceProvider",
+                "WebDEV\\B2BWave\\Providers\\ServiceProvider"
             ]
         }
     },
