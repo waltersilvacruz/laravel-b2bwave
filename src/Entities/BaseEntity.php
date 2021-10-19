@@ -45,7 +45,5 @@ class BaseEntity
                 'Content-Type' => 'application/json'
             ]
         ]);
-
-        echo $this->token;
     }
 }
