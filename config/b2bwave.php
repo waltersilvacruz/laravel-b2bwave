@@ -31,5 +31,5 @@ return [
     | Endpoint API URL
     |
     */
-    'url' => sprintf("https://%s.b2bwave.com/api", env('B2BWAVE_APP_CODE')),
+    'url' => sprintf("https://%s.b2bwave.com/api/", env('B2BWAVE_APP_CODE')),
 ];

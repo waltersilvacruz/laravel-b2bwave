@@ -15,14 +15,16 @@ use GuzzleHttp\Exception\RequestException;
  */
 class Customer extends BaseEntity
 {
-    private string $endpoint;
+    /**
+     * @var string
+     */
+    private string $endpoint = 'customers';
 
     /**
      * Constructor
      */
     public function __construct() {
         parent::__construct();
-        $this->endpoint = $this->url . '/customer';
         return $this;
     }
 
@@ -35,10 +37,18 @@ class Customer extends BaseEntity
     public function search(array $options): mixed {
         $result = [];
         try {
-            $result = $this->httpClient->get($this->endpoint);
+            $queryString = '?';
+            if($options) {
+                foreach($options as $key => $value) {
+                    if($queryString !== '?') $queryString .= '&';
+                    $queryString .= $key . '=' . $value;
+                }
+            }
+            $request = $this->httpClient->get($this->endpoint . $queryString);
+            $result = json_decode($request->getBody());
         } catch(Exception $ex) {
             // TODO: log request
-            throw new Exception($ex->getMessage);
+            throw new Exception($ex->getMessage());
         }
 
         return $result;

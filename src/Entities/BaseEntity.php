@@ -30,17 +30,22 @@ class BaseEntity
      * Constructor
      */
     public function __construct() {
-        $this->api = config('b2bwave.url');
+        $this->url = config('b2bwave.url');
         $this->token = config('b2bwave.token');
 
-        if(!$this->api || !$this->token) {
+        if(!$this->url || !$this->token) {
             throw new Exception("Wrong B2BWave configuration.");
         }
 
         $this->httpClient = new Client([
+            'base_uri' => $this->url,
             'headers' => [
-                'Token' => $this->token,
+                'Authorization' => 'Bearer ' . $this->token,
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json'
             ]
         ]);
+
+        echo $this->token;
     }
 }
