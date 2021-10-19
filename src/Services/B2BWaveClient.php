@@ -19,16 +19,15 @@ class B2BWaveClient
     /**
      * Constructor
      */
-    public function __construct() {}
+    public function __construct() {
+        $this->customerEntity = new Customer();
+    }
 
     /**
      * Customers entity
      * @return Customer
      */
-    public function customers() {
-        if(!$this->customerEntity) {
-            $this->customerEntity = new Customer();
-        }
+    public function customers(): Customer {
         return $this->customerEntity;
     }
 }
