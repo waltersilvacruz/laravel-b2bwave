@@ -20,8 +20,6 @@ class ServiceProvider extends LaravelServiceProvider
     public function boot()
     {
         $this->registerPublishes();
-        $this->registerRoutes();
-        $this->registerViews();
     }
 
     /**
@@ -47,15 +45,9 @@ class ServiceProvider extends LaravelServiceProvider
     protected function registerPublishes()
     {
         if ($this->app->runningInConsole()) {
-            $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
-
             $this->publishes([
                 __DIR__ . '/../../config/b2bwave.php' => config_path('b2bwave.php'),
             ], 'b2bwave-config');
-
-            $this->publishes([
-                __DIR__ . '/../../database/migrations' => database_path('migrations'),
-            ], 'b2bwave-migrations');
         }
     }
 }
