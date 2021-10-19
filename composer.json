@@ -1,0 +1,46 @@
+{
+    "name": "waltersilvacruz/laravel-b2bwave",
+    "description": "PHP client wrapping the B2BWave API.",
+    "keywords": [
+        "b2bwave",
+        "b2b",
+        "sales",
+        "client",
+        "laravel",
+        "webdev"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Walter Cruz",
+            "email": "walter@tnx.com.br"
+        }
+    ],
+    "type": "library",
+    "require": {
+        "php": ">=8.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "WebDEV\\B2BWave\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WebDEV\\B2BWave\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WebDEV\\B2BWave\\Providers\\ServiceProvider",
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
